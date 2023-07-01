@@ -35,7 +35,7 @@ function wageBracket1(totalIncome) {
     } else if (totalIncome <= 5000){
         console.log("That's not a lot of money. You should budget well.");
     } else {
-        console.log("Great! Let's get to work on your budget.");
+        console.log("Let's get to work on your budget. Great!");
     }
 }
 
