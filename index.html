@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrega 1 Javascript</title>
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Am I saving enough money?</title>
+  </head>
+  <body>
+
+    <h1>My budget simulator</h1>
+
+    <div id="form-main">
+        <div id="form-div">
+          <form class="form" id="form1">
+            <fieldset><legend>Income</legend>
+            <p class="name">
+              <input name="name" type="text" class="" id="name" placeholder="Name" />
+            </p>
+            
+            <p class="income">
+              <input name="income" type="text" class="" id="income" placeholder="Income" />
+            </p>
+
+            <p class="extraIncome">
+                <input name="extraIncome" type="text" class="" id="extraIncome" placeholder="Extra Income" />
+              </p>
+              
+            </fieldset>
+
+            <fieldset><legend>Necessities</legend>
+
+              <p class="rent">
+                <input name="rent" type="text" class="" id="rent" placeholder="Rent or Income" />
+              </p>
+
+              <p class="groceries">
+                <input name="groceries" type="text" class="" id="groceries" placeholder="Groceries" />
+              </p>
+
+              <p class="health">
+                <input name="health" type="text" class="" id="health" placeholder="Health" />
+              </p>
+
+              <p class="transport">
+                <input name="transport" type="text" class="" id="transport" placeholder="Transport" />
+              </p>
+
+              <p class="gas">
+                <input name="gas" type="text" class="" id="gas" placeholder="Gas" />
+              </p>
+
+              <p class="electric">
+                <input name="electric" type="text" class="" id="electric" placeholder="Electric" />
+              </p>
+
+              <p class="mobile">
+                <input name="mobile" type="text" class="" id="mobile" placeholder="Mobile" />
+              </p>
+
+              <p class="internet">
+                <input name="internet" type="text" class="" id="internet" placeholder="Internet" />
+              </p>
+
+              <p class="extras">
+                <input name="extras" type="text" class="" id="extras" placeholder="Extras" />
+              </p>
+
+            </fieldset>
+
+            <fieldset><legend>Fun stuff</legend>
+
+              <p class="outings">
+                <input name="outings" type="text" class="" id="outings" placeholder="Outings" />
+              </p>
+
+              <p class="entertainment">
+                <input name="entertainment" type="text" class="" id="entertainment" placeholder="Entertainment" />
+              </p>
+
+              <p class="vacations">
+                <input name="vacations" type="text" class="" id="vacations" placeholder="vacations" />
+              </p>
+            </fieldset>
+
+              <fieldset><legend>Debts and Savings</legend>
+
+              <p class="debts">
+                <input name="debts" type="text" class="" id="debts" placeholder="Debts" />
+              </p>
+
+              <p class="savings">
+                <input name="savings" type="text" class="" id="savings" placeholder="Savings" />
+              </p>
+            </fieldset>
+          
+            <div class="submit">
+              <input type="submit" value="Test my spending" id="button-blue"/>
+              <div class="ease"></div>
+            </div>
+          </form>
+        </div>
+
+
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
