@@ -164,7 +164,7 @@ let internet = parseInt(
 
 let extras = parseInt(
   prompt(
-    "Do you have any other necessites you haven't added up? Insert the total amount here"
+    "Do you have any other necessities you haven't added up? Insert the total amount here"
   )
 );
 
@@ -338,51 +338,3 @@ const badDebt = fullScenariosArrays.filter(
   (amt) => amt.debts > totalIncome / 5
 );
 console.log(badDebt);
-
-// const totalIncome = 25000;
-
-// class FullScenariosArray {
-//   constructor(needs, wants, savings, debts) {
-//     this.needs = parseInt(needs);
-//     this.wants = parseInt(wants);
-//     this.savings = parseInt(savings);
-//     this.debts = parseInt(debts);
-//   }
-//   sumSingleScenario() {
-//     let budget = this.needs + this.wants + this.debts;
-//     let percentNeeds = parseInt((this.needs / totalIncome) * 100);
-//     let percentWants = parseInt((this.wants / totalIncome) * 100);
-//     let percentSavings = parseInt((this.savings / totalIncome) * 100);
-//     let percentDebts = parseInt((this.debts / totalIncome) * 100);
-//     let percentSpending = parseInt((budget / totalIncome) * 100);
-
-//     console.log(
-//       "In this scenario, your needs are " +
-//         percentNeeds +
-//         " percent of your income. Your wants are " +
-//         percentWants +
-//         " percent of your income. Your savings are " +
-//         percentSavings +
-//         " percent of your income. Your debts are " +
-//         percentDebts +
-//         " percent of your income. Your are spending " +
-//         percentSpending +
-//         " percent of your income."
-//     );
-//   }
-// }
-
-// const fullScenariosArrays = [];
-// fullScenariosArrays.push(
-//   new FullScenariosArray("10000", "25000", "8000", "500")
-// );
-// fullScenariosArrays.push(
-//   new FullScenariosArray("15000", "10000", "0", "20000")
-// );
-// fullScenariosArrays.push(new FullScenariosArray("5000", "2000", "2000", "0"));
-
-// for (const fullScenariosArray of fullScenariosArrays)
-//   fullScenariosArray.sumSingleScenario();
-
-// console.log(fullScenariosArrays);
-// console.log("You have presented " + fullScenariosArrays.length + " budgets.");
