@@ -330,7 +330,14 @@ for (const fullScenariosArray of fullScenariosArrays)
   fullScenariosArray.sumSingleScenario();
 
 console.log(fullScenariosArrays);
-console.log("You have presented " + fullScenariosArrays.length + " budgets.");
+console.log(
+  "You have presented " + fullScenariosArrays.length + " budget alternatives."
+);
+
+const badDebt = fullScenariosArrays.filter(
+  (amt) => amt.debts > totalIncome / 5
+);
+console.log(badDebt);
 
 // const totalIncome = 25000;
 
