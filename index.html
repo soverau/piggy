@@ -4,85 +4,173 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Am I saving enough money?</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-
     <h1>My budget simulator</h1>
 
-    <div id="form-main">
-        <div id="form-div">
-          <form class="form" id="form1">
-            <fieldset><legend>Income</legend>
-            <p class="name">
-              <input name="name" type="text" class="" id="name" placeholder="Name" />
-            </p>
-            
-            <p class="income">
-              <input name="income" type="text" class="" id="income" placeholder="Income" />
-            </p>
+    <div id="divID">
+      <h2>First, tell us your name.</h2>
+      <div id="form-div">
+        <form class="form" id="formtest">
+          <p class="name">
+            <input
+              name="name"
+              type="text"
+              class=""
+              id="name"
+              placeholder="Name"
+            />
+          </p>
+          <div class="submit">
+            <input type="submit" value="Test my spending" id="buttonBlueTest" />
+            <div class="ease"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="welcome"></div>
+    <div id="answer"></div>
 
-            <p class="extraIncome">
-                <input name="extraIncome" type="text" class="" id="extraIncome" placeholder="Extra Income" />
-              </p>
-              
-            </fieldset>
+    <div id="divIncome" style="display: none">
+      <h2 id="divIncomeMessage">
+        Now fill in your monthly income and expenses
+      </h2>
+      <div id="formIncome">
+        <form class="form" id="form1">
+          <p class="income">
+            <input
+              name="income"
+              type="text"
+              class=""
+              id="income"
+              placeholder="Income"
+            />
+          </p>
+          <p class="extraIncome">
+            <input
+              name="extraIncome"
+              type="text"
+              class=""
+              id="extraIncome"
+              placeholder="Extra Income"
+            />
+          </p>
+          <p class="rent">
+            <input
+              name="rent"
+              type="text"
+              class=""
+              id="rent"
+              placeholder="Rent or Mortgage"
+            />
+          </p>
 
-            <fieldset><legend>Necessities</legend>
+          <p class="groceries">
+            <input
+              name="groceries"
+              type="text"
+              class=""
+              id="groceries"
+              placeholder="Groceries"
+            />
+          </p>
 
-              <p class="rent">
-                <input name="rent" type="text" class="" id="rent" placeholder="Rent or Income" />
-              </p>
+          <p class="health">
+            <input
+              name="health"
+              type="text"
+              class=""
+              id="health"
+              placeholder="Health"
+            />
+          </p>
 
-              <p class="groceries">
-                <input name="groceries" type="text" class="" id="groceries" placeholder="Groceries" />
-              </p>
+          <p class="transport">
+            <input
+              name="transport"
+              type="text"
+              class=""
+              id="transport"
+              placeholder="Transport"
+            />
+          </p>
 
-              <p class="health">
-                <input name="health" type="text" class="" id="health" placeholder="Health" />
-              </p>
+          <p class="gas">
+            <input name="gas" type="text" class="" id="gas" placeholder="Gas" />
+          </p>
 
-              <p class="transport">
-                <input name="transport" type="text" class="" id="transport" placeholder="Transport" />
-              </p>
+          <p class="electric">
+            <input
+              name="electric"
+              type="text"
+              class=""
+              id="electric"
+              placeholder="Electric"
+            />
+          </p>
 
-              <p class="gas">
-                <input name="gas" type="text" class="" id="gas" placeholder="Gas" />
-              </p>
+          <p class="mobile">
+            <input
+              name="mobile"
+              type="text"
+              class=""
+              id="mobile"
+              placeholder="Mobile"
+            />
+          </p>
 
-              <p class="electric">
-                <input name="electric" type="text" class="" id="electric" placeholder="Electric" />
-              </p>
+          <p class="internet">
+            <input
+              name="internet"
+              type="text"
+              class=""
+              id="internet"
+              placeholder="Internet"
+            />
+          </p>
 
-              <p class="mobile">
-                <input name="mobile" type="text" class="" id="mobile" placeholder="Mobile" />
-              </p>
+          <p class="extraExpenses">
+            <input
+              name="extras"
+              type="text"
+              class=""
+              id="extraExpenses"
+              placeholder="Extras"
+            />
+          </p>
 
-              <p class="internet">
-                <input name="internet" type="text" class="" id="internet" placeholder="Internet" />
-              </p>
+          <p class="outings">
+            <input
+              name="outings"
+              type="text"
+              class=""
+              id="outings"
+              placeholder="Outings"
+            />
+          </p>
 
-              <p class="extras">
-                <input name="extras" type="text" class="" id="extras" placeholder="Extras" />
-              </p>
+          <p class="entertainment">
+            <input
+              name="entertainment"
+              type="text"
+              class=""
+              id="entertainment"
+              placeholder="Entertainment"
+            />
+          </p>
 
-            </fieldset>
+          <p class="vacations">
+            <input
+              name="vacations"
+              type="text"
+              class=""
+              id="vacations"
+              placeholder="vacations"
+            />
+          </p>
 
-            <fieldset><legend>Fun stuff</legend>
-
-              <p class="outings">
-                <input name="outings" type="text" class="" id="outings" placeholder="Outings" />
-              </p>
-
-              <p class="entertainment">
-                <input name="entertainment" type="text" class="" id="entertainment" placeholder="Entertainment" />
-              </p>
-
-              <p class="vacations">
-                <input name="vacations" type="text" class="" id="vacations" placeholder="vacations" />
-              </p>
-            </fieldset>
-
-              <fieldset><legend>Debts and Savings</legend>
+          <!-- <fieldset><legend>Debts and Savings</legend>
 
               <p class="debts">
                 <input name="debts" type="text" class="" id="debts" placeholder="Debts" />
@@ -91,15 +179,39 @@
               <p class="savings">
                 <input name="savings" type="text" class="" id="savings" placeholder="Savings" />
               </p>
-            </fieldset>
-          
-            <div class="submit">
-              <input type="submit" value="Test my spending" id="button-blue"/>
-              <div class="ease"></div>
-            </div>
-          </form>
-        </div>
+            </fieldset> -->
 
+          <div class="submit">
+            <input type="submit" value="Test my spending" id="button-blue" />
+            <div class="ease"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-4 offset-2 my-5" id="budgetSubmit" style="display: block">
+      <button id="btn" onclick="convert( )">Click Here</button> <br />
+    </div>
+    <div class="col-4 offset-2 my-5" id="chartContainer" style="display: none">
+      <div class="card">
+        <div class="body-card">
+          <h5>Breakdown</h5>
+          <hr />
+
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <canvas id="dimensions"></canvas>
+    </div>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="./js/main.js"></script>
   </body>
