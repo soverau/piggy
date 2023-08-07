@@ -134,6 +134,7 @@ incomeForm.addEventListener("submit", (e) => {
     //     console.log(`${key}: ${budget1[key]}`);
     //   }
     // }
+
     // Devolver ingreso total al usuario
 
     const returnMessage = `<h2>${localStorage.userName}, your total income is ${totalIncome} .</h2>`;
@@ -174,148 +175,240 @@ incomeForm.addEventListener("submit", (e) => {
           break;
       }
       console.log(reply);
-
-      const ctx = document.getElementById("myChart");
-
-      new Chart(ctx, {
-        type: "pie",
-        data: {
-          labels: [
-            "Rent",
-            "Groceries",
-            "Health",
-            "Transport",
-            "Gas",
-            "Electric",
-            "Mobile",
-            "Internet",
-            "Extras",
-            "Outings",
-            "Entertainment",
-            "Vacations",
-          ],
-          datasets: [
-            {
-              label: "Budget Items",
-              data: [
-                budget1.rent,
-                budget1.groceries,
-                budget1.health,
-                budget1.transport,
-                budget1.gas,
-                budget1.electric,
-                budget1.mobile,
-                budget1.internet,
-                budget1.extraExpenses,
-                budget1.outings,
-                budget1.entertainment,
-                budget1.vacations,
-              ],
-              backgroundColor: [
-                "rgb(54, 162, 235)",
-                "rgb(54, 162, 235, 0.8)",
-                "rgb(54, 162, 235, 0.7)",
-                "rgb(54, 162, 235, 0.6)",
-                "rgb(54, 162, 235, 0.5)",
-                "rgb(54, 162, 235, 0.4)",
-                "rgb(54, 162, 235, 0.3)",
-                "rgb(54, 162, 235, 0.2)",
-                "rgb(255, 99, 132)",
-                "rgb(255, 99, 132, 0.6)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86, 0.6)",
-              ],
-              hoverOffset: 4,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
     }
 
-    // document.getElementById("divID").style.display = "none";
-    // document.getElementById("divIncome").style.display = "block";
+    // function needs() {
+    //   let totalNeeds =
+    //     rent.value +
+    //     groceries.value +
+    //     health.value +
+    //     transport.value +
+    //     gas.value +
+    //     electric.value +
+    //     mobile.value +
+    //     internet.value +
+    //     extraExpenses.value;
+    //   let percentNeeds = (totalNeeds / totalIncome) * 100;
+    //   let goodPractice = percentNeeds <= 50;
+    //   let badPractice = percentNeeds > 50;
 
-    // `<div class="person">
-    // <h2>
-    //     ${person.name}
-    // </h2>
-    // <p class="location">${person.city}</p>
-    // <p class="bio">${person.bio}</p>
-    // </div>`
+    //   function needsSpending(totalNeeds, percentNeeds) {
+    //     console.log(
+    //       "You spend " +
+    //         totalNeeds +
+    //         " on necessities. That is " +
+    //         percentNeeds +
+    //         " percent of your income."
+    //     );
+    //   }
+    //   switch (true) {
+    //     case goodPractice:
+    //       needsSpending();
+    //       console.log(
+    //         "Great. You should't spend more than 50% of your income on necessities."
+    //       );
+    //       break;
+    //     case badPractice:
+    //       needsSpending();
+    //       console.log(
+    //         "Terrible. You should't spend more than 50% of your income on necessities."
+    //       );
+    //       break;
+    //   }
 
-    //console.log("Hi, " + userName.value + ". Let's set up a budget for you.");
+    //   return percentNeeds;
+    // }
+
+    // needs();
+
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: [
+          "Rent",
+          "Groceries",
+          "Health",
+          "Transport",
+          "Gas",
+          "Electric",
+          "Mobile",
+          "Internet",
+          "Extras",
+          "Outings",
+          "Entertainment",
+          "Vacations",
+        ],
+        datasets: [
+          {
+            label: "Budget Items",
+            data: [
+              budget1.rent,
+              budget1.groceries,
+              budget1.health,
+              budget1.transport,
+              budget1.gas,
+              budget1.electric,
+              budget1.mobile,
+              budget1.internet,
+              budget1.extraExpenses,
+              budget1.outings,
+              budget1.entertainment,
+              budget1.vacations,
+            ],
+            backgroundColor: [
+              "rgb(54, 162, 235)",
+              "rgb(54, 162, 235, 0.8)",
+              "rgb(54, 162, 235, 0.7)",
+              "rgb(54, 162, 235, 0.6)",
+              "rgb(54, 162, 235, 0.5)",
+              "rgb(54, 162, 235, 0.4)",
+              "rgb(54, 162, 235, 0.3)",
+              "rgb(54, 162, 235, 0.2)",
+              "rgb(255, 99, 132)",
+              "rgb(255, 99, 132, 0.6)",
+              "rgb(255, 205, 86)",
+              "rgb(255, 205, 86, 0.6)",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
   }
 });
 
+// function convert() {
+// Sample JSON data
+// let jsonData = [
+//   {
+//     name: "Saurabh",
+//     age: "20",
+//     city: "Prayagraj",
+//   },
+//   {
+//     name: "Vipin",
+//     age: 23,
+//     city: "Lucknow",
+//   },
+//   {
+//     name: "Saksham",
+//     age: 21,
+//     city: "Noida",
+//   },
+// ];
+
 function convert() {
-  // Sample JSON data
-  // let jsonData = [
-  //   {
-  //     name: "Saurabh",
-  //     age: "20",
-  //     city: "Prayagraj",
-  //   },
-  //   {
-  //     name: "Vipin",
-  //     age: 23,
-  //     city: "Lucknow",
-  //   },
-  //   {
-  //     name: "Saksham",
-  //     age: 21,
-  //     city: "Noida",
-  //   },
-  // ];
+  // Recupera los datos del localStorage
+  let budget1ChartJSON = localStorage.getItem("budget1JSON");
 
-  let budget1Chart = JSON.parse(localStorage.getItem("budget1JSON"));
-  console.log("budget1Chart", budget1Chart);
+  // Verifica si los datos no son nulos
+  if (budget1ChartJSON !== null) {
+    // Analiza los datos JSON
+    let budget1Chart = JSON.parse(budget1ChartJSON);
 
-  // Get the container element where the table will be inserted
-  let budgetSubmit = document.getElementById("budgetSubmit");
+    // Cierre de llave } para el bloque anterior
+  }
 
-  // Create the table element
-  let table = document.createElement("table");
+    // Verifica si los datos analizados son un arreglo
+    if (Array.isArray(budget1Chart)) {
+      // Obtiene el elemento contenedor donde se insertará la tabla
+      let budgetSubmit = document.getElementById("budgetSubmit");
 
-  // Get the keys (column names) of the first object in the JSON data
-  let cols = Object.keys(budget1Chart[0]);
+      // ... Resto de tu código para crear la tabla usando budget1Chart ...
 
-  // Create the header element
-  let thead = document.createElement("thead");
-  let tr = document.createElement("tr");
+      let table = document.createElement("table");
 
-  // Loop through the column names and create header cells
-  cols.forEach((item) => {
-    let th = document.createElement("th");
-    th.innerText = item; // Set the column name as the text of the header cell
-    tr.appendChild(th); // Append the header cell to the header row
-  });
-  thead.appendChild(tr); // Append the header row to the header
-  table.append(tr); // Append the header to the table
+      // Get the keys (column names) of the first object in the JSON data
+      let cols = Object.keys(budget1Chart[0]);
 
-  // Loop through the JSON data and create table rows
-  budget1Chart.forEach((item) => {
-    let tr = document.createElement("tr");
+      // Create the header element
+      let thead = document.createElement("thead");
+      let tr = document.createElement("tr");
 
-    // Get the values of the current object in the JSON data
-    let vals = Object.values(item);
+      // Loop through the column names and create header cells
+      cols.forEach((item) => {
+        let th = document.createElement("th");
+        th.innerText = item; // Set the column name as the text of the header cell
+        tr.appendChild(th); // Append the header cell to the header row
+      });
+      thead.appendChild(tr); // Append the header row to the header
+      table.append(tr); // Append the header to the table
 
-    // Loop through the values and create table cells
-    vals.forEach((elem) => {
-      let td = document.createElement("td");
-      td.innerText = elem; // Set the value as the text of the table cell
-      tr.appendChild(td); // Append the table cell to the table row
-    });
-    table.appendChild(tr); // Append the table row to the table
-  });
-  budgetSubmit.appendChild(table); // Append the table to the container element
-}
+      // Loop through the JSON data and create table rows
+      budget1Chart.forEach((item) => {
+        let tr = document.createElement("tr");
+
+        // Get the values of the current object in the JSON data
+        let vals = Object.values(item);
+
+        // Loop through the values and create table cells
+        vals.forEach((elem) => {
+          let td = document.createElement("td");
+          td.innerText = elem; // Set the value as the text of the table cell
+          tr.appendChild(td); // Append the table cell to the table row
+        });
+        table.appendChild(tr); // Append the table row to the table
+      });
+      budgetSubmit.appendChild(table); // Append the table to the container element
+    } else {
+      console.log("Datos JSON no válidos. Se esperaba un arreglo.");
+    }
+  } else {
+    console.log("No se encontraron datos JSON en localStorage.");
+  }
+
+
+//   let budget1Chart = JSON.parse(localStorage.getItem("budget1JSON"));
+//   console.log("budget1Chart", budget1Chart);
+
+//   // Get the container element where the table will be inserted
+//   let budgetSubmit = document.getElementById("budgetSubmit");
+
+//   // Create the table element
+//   let table = document.createElement("table");
+
+//   // Get the keys (column names) of the first object in the JSON data
+//   let cols = Object.keys(budget1Chart[0]);
+
+//   // Create the header element
+//   let thead = document.createElement("thead");
+//   let tr = document.createElement("tr");
+
+//   // Loop through the column names and create header cells
+//   cols.forEach((item) => {
+//     let th = document.createElement("th");
+//     th.innerText = item; // Set the column name as the text of the header cell
+//     tr.appendChild(th); // Append the header cell to the header row
+//   });
+//   thead.appendChild(tr); // Append the header row to the header
+//   table.append(tr); // Append the header to the table
+
+//   // Loop through the JSON data and create table rows
+//   budget1Chart.forEach((item) => {
+//     let tr = document.createElement("tr");
+
+//     // Get the values of the current object in the JSON data
+//     let vals = Object.values(item);
+
+//     // Loop through the values and create table cells
+//     vals.forEach((elem) => {
+//       let td = document.createElement("td");
+//       td.innerText = elem; // Set the value as the text of the table cell
+//       tr.appendChild(td); // Append the table cell to the table row
+//     });
+//     table.appendChild(tr); // Append the table row to the table
+//   });
+//   budgetSubmit.appendChild(table); // Append the table to the container element
+// }
 
 // mainIncome = parseInt(income);
 
@@ -351,101 +444,6 @@ function convert() {
 //   //     console.log("Also...Holy heckaroo! Let's plan your retirement.");
 //   // }
 // }
-
-// function needs() {
-//   let totalNeeds =
-//     rentMortgage +
-//     groceries +
-//     health +
-//     transport +
-//     gas +
-//     electric +
-//     mobile +
-//     internet +
-//     extras;
-//   let percentNeeds = (totalNeeds / income) * 100;
-//   let goodPractice = percentNeeds <= 50;
-//   let badPractice = percentNeeds > 50;
-
-//   function needsSpending(totalNeeds, percentNeeds) {
-//     console.log(
-//       "You spend " +
-//         totalNeeds +
-//         " on necessities. That is " +
-//         percentNeeds +
-//         " percent of your income. Your detailed spending is: Rent or Mortgage - " +
-//         rentMortgage +
-//         ", Groceries - " +
-//         groceries +
-//         ", Health - " +
-//         health +
-//         ", Transport - " +
-//         transport +
-//         ", Gas - " +
-//         gas +
-//         ", Electric - " +
-//         electric +
-//         ", Mobile - " +
-//         mobile +
-//         ", Internet - " +
-//         internet +
-//         ", Extras - " +
-//         extras
-//     );
-//   }
-//   switch (true) {
-//     case goodPractice:
-//       needsSpending();
-//       console.log(
-//         "Great. You should't spend more than 50% of your income on necessities."
-//       );
-//       break;
-//     case badPractice:
-//       needsSpending();
-//       console.log(
-//         "Terrible. You should't spend more than 50% of your income on necessities."
-//       );
-//       break;
-//   }
-
-//   return percentNeeds;
-// }
-
-// let rentMortgage = parseInt(
-//   prompt("How much do you spend on rent or your mortgage monthly?")
-// );
-
-// let groceries = parseInt(prompt("How much do you spend on groceries a month?"));
-
-// let health = parseInt(
-//   prompt(
-//     "How much do you spend on our health, including medication, insurance, doctors etc.?"
-//   )
-// );
-
-// let transport = parseInt(
-//   prompt(
-//     "How much is the total you spend on rent or your public transport, fuel, car insurance, etc.?"
-//   )
-// );
-
-// let gas = parseInt(prompt("What is your monthly gas bill?"));
-
-// let electric = parseInt(prompt("What is your monthly power bill?"));
-
-// let mobile = parseInt(prompt("What is your monthly mobile bill"));
-
-// let internet = parseInt(
-//   prompt("How much do you spend on your internet service?")
-// );
-
-// let extras = parseInt(
-//   prompt(
-//     "Do you have any other necessities you haven't added up? Insert the total amount here"
-//   )
-// );
-
-// needs();
 
 // function wants() {
 //   let totalWants = outings + holidays + entertainment;
