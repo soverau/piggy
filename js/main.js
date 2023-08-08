@@ -123,12 +123,13 @@ incomeForm.addEventListener("submit", (e) => {
 
     let totalIncome = parseInt(income.value) + parseInt(extraIncome.value);
     localStorage.setItem("Total Income", totalIncome);
-
+    carrito.push(budget1);
     const inJSON = JSON.stringify(budget1);
     console.log("inJSON", inJSON);
     console.log(typeof budget1);
     console.log(typeof inJSON);
-    localStorage.setItem("budget1JSON", inJSON);
+
+    localStorage.setItem("budget1JSON", JSON.stringify(carrito));
 
     // for (const key in budget1) {
     //   if (budget1.hasOwnProperty(key)) {
@@ -307,6 +308,7 @@ function convert() {
   //   },
   // ];
   let budget1Chart = carrito;
+
   // let budget1Chart = JSON.parse(localStorage.getItem("budget1JSON")) || [];
   console.log("budget1Chart", budget1Chart);
 
