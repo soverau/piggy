@@ -1,6 +1,7 @@
 // Declarar const usuario
 
 const userName = document.getElementById("name");
+let carrito = JSON.parse(localStorage.getItem("budget1JSON")) || [];
 
 // Crear una clase para hacer 2 pruebas comparativas de presupuesto.
 class Budget {
@@ -305,8 +306,8 @@ function convert() {
   //     city: "Noida",
   //   },
   // ];
-
-  let budget1Chart = JSON.parse(localStorage.getItem("budget1JSON"));
+  let budget1Chart = carrito;
+  // let budget1Chart = JSON.parse(localStorage.getItem("budget1JSON")) || [];
   console.log("budget1Chart", budget1Chart);
 
   // Get the container element where the table will be inserted
