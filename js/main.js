@@ -1,7 +1,8 @@
 // Declarar const usuario
-
+console.log("Prueba");
 const userName = document.getElementById("name");
 let carrito = JSON.parse(localStorage.getItem("budget1JSON")) || [];
+console.log("Line 5 - carrito", carrito);
 
 // Crear una clase para hacer 2 pruebas comparativas de presupuesto.
 class Budget {
@@ -118,7 +119,7 @@ incomeForm.addEventListener("submit", (e) => {
       vacations.value
     );
     // Si los ingresó, mandar a la consola para chequear
-    console.log(budget1);
+    console.log("Line 122", budget1);
     // Calcular ingreso total y guardar en local storage
 
     let totalIncome = parseInt(income.value) + parseInt(extraIncome.value);
@@ -289,69 +290,52 @@ incomeForm.addEventListener("submit", (e) => {
 });
 
 function convert() {
-  // Sample JSON data
-  // let jsonData = [
-  //   {
-  //     name: "Saurabh",
-  //     age: "20",
-  //     city: "Prayagraj",
-  //   },
-  //   {
-  //     name: "Vipin",
-  //     age: 23,
-  //     city: "Lucknow",
-  //   },
-  //   {
-  //     name: "Saksham",
-  //     age: 21,
-  //     city: "Noida",
-  //   },
-  // ];
   let budget1Chart = carrito;
 
   // let budget1Chart = JSON.parse(localStorage.getItem("budget1JSON")) || [];
   console.log("budget1Chart", budget1Chart);
 
-  // Get the container element where the table will be inserted
+  // Get the container for the table to go in
   let budgetSubmit = document.getElementById("budgetSubmit");
 
-  // Create the table element
+  // Create the table
   let table = document.createElement("table");
 
-  // Get the keys (column names) of the first object in the JSON data
+  // Get the keys of the first object in the JSON data (keys = columns)
   let cols = Object.keys(budget1Chart[0]);
 
-  // Create the header element
+  // Create the header
   let thead = document.createElement("thead");
   let tr = document.createElement("tr");
 
-  // Loop through the column names and create header cells
+  // Loop through the column names to make 'th's
   cols.forEach((item) => {
     let th = document.createElement("th");
-    th.innerText = item; // Set the column name as the text of the header cell
-    tr.appendChild(th); // Append the header cell to the header row
+    th.innerText = item; // insert key name into th
+    tr.appendChild(th); // add the th in the tr
   });
-  thead.appendChild(tr); // Append the header row to the header
-  table.append(tr); // Append the header to the table
+  thead.appendChild(tr); // add the thead in the tr
+  table.append(tr); // add the tr in the table
 
-  // Loop through the JSON data and create table rows
+  // Loop through the JSON data and create rows
   budget1Chart.forEach((item) => {
     let tr = document.createElement("tr");
 
-    // Get the values of the current object in the JSON data
+    // Get the values of the current object JSON
     let vals = Object.values(item);
 
-    // Loop through the values and create table cells
+    // Loop through the values and make tds
     vals.forEach((elem) => {
       let td = document.createElement("td");
-      td.innerText = elem; // Set the value as the text of the table cell
-      tr.appendChild(td); // Append the table cell to the table row
+      td.innerText = elem; // set the value to the td
+      tr.appendChild(td); // add the td to the row
     });
-    table.appendChild(tr); // Append the table row to the table
+    table.appendChild(tr); // add row to table
   });
-  budgetSubmit.appendChild(table); // Append the table to the container element
+  budgetSubmit.appendChild(table); // add table to original container
 }
 
+// rewrite this later to fit into new forms
 // mainIncome = parseInt(income);
 
 // console.log("Main Income is " + mainIncome);
