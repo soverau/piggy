@@ -1,5 +1,3 @@
-debugger;
-
 let userName = prompt("What is your name?");
 console.log("Hi, " + userName + ". Let's set up a budget for you.");
 
@@ -214,15 +212,16 @@ needs(
   mobile,
   internet,
   extras,
-  income
+  totalIncome
 );
 
 function wants(outings, holidays, entertainment, totalIncome) {
   console.log(`running wants`);
+  console.log(`total income ${totalIncome}`);
   let totalWants = outings + holidays + entertainment;
   console.log(`total wants ${totalWants}`);
   let percentWants = (totalWants / totalIncome) * 100;
-  console.log(`total wants ${percentWants}`);
+  console.log(`percent wants ${percentWants}`);
   let goodPractice = percentWants <= 30;
   let badPractice = percentWants > 30;
 
@@ -243,7 +242,7 @@ function wants(outings, holidays, entertainment, totalIncome) {
     );
   }
 
-  wantsSpending(totalWants, percentWants);
+  wantsSpending(totalWants, percentWants, totalIncome);
 
   if (goodPractice) {
     console.log(
@@ -266,7 +265,7 @@ let entertainment = parseInt(
   prompt("How much do you spend on entertaining monthly?")
 );
 
-wants(outings, holidays, entertainment);
+wants(outings, holidays, entertainment, totalIncome);
 
 function debtsSavings(debts, savings, totalIncome) {
   let totalDebts = debts + savings;
