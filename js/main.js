@@ -14,6 +14,16 @@ let mainIncome = parseInt(income);
 console.log("Main Income is " + mainIncome);
 
 let extraIncome = prompt("How much was your extra income this month?");
+
+if (extraIncome === "") {
+  for (let i = 0; i < 3; i++) {
+    extraIncome = prompt(
+      "Come on, no extra income? Are you sure? Any number at all..."
+    );
+    i++;
+  }
+}
+
 let totalIncome;
 
 if (extraIncome === "") {
