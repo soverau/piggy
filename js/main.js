@@ -1,20 +1,27 @@
+// Ingrese nombre
 let userName = prompt("What is your name?");
 console.log("Hi, " + userName + ". Let's set up a budget for you.");
 
+// Ingrese ingresos principales
 let income = prompt("What is your monthly income?");
 
+// Asegurar que no esté en blanco
 while (income === "") {
   income = prompt(
     "Come on. You must make something. What is your monthly income?"
   );
 }
 
+// Convertir monto en un número
 let mainIncome = parseInt(income);
 
+// Devolver mensaje al usuario
 console.log("Main Income is " + mainIncome);
 
+// Ingrese ingresos secundarios
 let extraIncome = prompt("How much was your extra income this month?");
 
+// Dar 3 oportunidades de ingresar si no dejó el campo vacío
 if (extraIncome === "") {
   for (let i = 0; i < 3; i++) {
     extraIncome = prompt(
@@ -24,7 +31,10 @@ if (extraIncome === "") {
   }
 }
 
+// Declarar monto total
 let totalIncome;
+
+// Crear franjas de ingreso
 
 if (extraIncome === "") {
   extraIncome = 0;
@@ -38,6 +48,9 @@ if (extraIncome === "") {
   wageBracket2(totalIncome);
   wageBracket1(totalIncome);
 }
+
+// Dar respuesta al usuario según el monto que gana - franja ingreso 1.
+
 function wageBracket1(totalIncome) {
   if (totalIncome <= 1500) {
     console.log(
@@ -49,6 +62,8 @@ function wageBracket1(totalIncome) {
     console.log("Let's get to work on your budget. Great!");
   }
 }
+
+// Dar respuesta al usuario según el monto que gana - franja ingreso 2.
 function wageBracket2(totalIncome, reply) {
   console.log(userName + ", your total income was " + totalIncome + ".");
 
@@ -92,6 +107,8 @@ function wageBracket2(totalIncome, reply) {
   //     console.log("Also...Holy heckaroo! Let's plan your retirement.");
   // }
 }
+
+// Función necesidades
 function needs(
   rentMortgage,
   groceries,
@@ -124,30 +141,7 @@ function needs(
     `Your needs spending is ${percentNeeds}% of your total income ${totalIncome}.`
   );
 
-  needsSpending(totalNeeds, percentNeeds, totalIncome);
-
-  if (goodPractice) {
-    console.log(
-      "Great. You should't spend more than 50% of your income on necessities.  You make " +
-        totalIncome +
-        "."
-    );
-  } else if (badPractice) {
-    console.log(
-      "Terrible. You should't spend more than 50% of your income on necessities.  You make " +
-        totalIncome +
-        "."
-    );
-  }
-
-  // if (goodPractice) {
-  //   console.log("Great");
-  // } else if (badPractice) {
-  //   console.log(
-  //     "Terrible. You should be spending less than 50% of your income on needs"
-  //   );
-  // }
-
+  // Función gastos - devolución al usuario
   function needsSpending(totalNeeds, percentNeeds, totalIncome) {
     console.log(
       "You spend " +
@@ -176,7 +170,35 @@ function needs(
         extras
     );
   }
+
+  needsSpending(totalNeeds, percentNeeds, totalIncome);
+
+  // Devolución buenas práctivas sobre gastos en necesidades
+
+  if (goodPractice) {
+    console.log(
+      "Great. You should't spend more than 50% of your income on necessities.  You make " +
+        totalIncome +
+        "."
+    );
+  } else if (badPractice) {
+    console.log(
+      "Terrible. You should't spend more than 50% of your income on necessities.  You make " +
+        totalIncome +
+        "."
+    );
+  }
+
+  // if (goodPractice) {
+  //   console.log("Great");
+  // } else if (badPractice) {
+  //   console.log(
+  //     "Terrible. You should be spending less than 50% of your income on needs"
+  //   );
+  // }
 }
+
+// Solicitar al usuario montos que gasta en necesidades
 
 let rentMortgage = parseInt(
   prompt("How much do you spend on rent or your mortgage monthly?")
@@ -212,6 +234,8 @@ let extras = parseInt(
   )
 );
 
+// Llamar a función necesidades
+
 needs(
   rentMortgage,
   groceries,
@@ -225,6 +249,8 @@ needs(
   totalIncome
 );
 
+// Función deseos
+
 function wants(outings, holidays, entertainment, totalIncome) {
   console.log(`running wants`);
   console.log(`total income ${totalIncome}`);
@@ -234,6 +260,8 @@ function wants(outings, holidays, entertainment, totalIncome) {
   console.log(`percent wants ${percentWants}`);
   let goodPractice = percentWants <= 30;
   let badPractice = percentWants > 30;
+
+  // Función gastos en deseos
 
   function wantsSpending(totalWants, percentWants, totalIncome) {
     console.log(
@@ -252,7 +280,11 @@ function wants(outings, holidays, entertainment, totalIncome) {
     );
   }
 
+  // llamar a función gastos en deseos
+
   wantsSpending(totalWants, percentWants, totalIncome);
+
+  // Devolución a usuario sobre gastos en deseos
 
   if (goodPractice) {
     console.log(
@@ -265,6 +297,8 @@ function wants(outings, holidays, entertainment, totalIncome) {
   }
 }
 
+// Pedir a usuario que ingrese montos de gastos en deseos
+
 let outings = parseInt(
   prompt("How much do you spend on going out in a month?")
 );
@@ -275,7 +309,11 @@ let entertainment = parseInt(
   prompt("How much do you spend on entertaining monthly?")
 );
 
+// llamar a función deseos
+
 wants(outings, holidays, entertainment, totalIncome);
+
+// Función ahorros
 
 function debtsSavings(debts, savings, totalIncome) {
   let totalDebts = debts + savings;
@@ -283,20 +321,25 @@ function debtsSavings(debts, savings, totalIncome) {
   let goodPractice = percentDebts <= 20;
   let badPractice = percentDebts > 20;
 
+  // Función deudas
+
   function debtsSpending(totalDebts, percentDebts) {
     console.log(
       "You carry " +
         totalDebts +
-        " on necessities. That is " +
+        " on debts. That is " +
         percentDebts +
         " percent of your income."
     );
   }
+
+  // Llamar a función gastos en deudas
+
   debtsSpending(totalDebts, percentDebts);
 
   if (goodPractice) {
     console.log(
-      "Great. Your debts and savings are less than 20% of your income. You should try to save more money."
+      "Great. Your debts and savings are less than 20% of your income. You should still try to save more money."
     );
   } else if (badPractice) {
     console.log(
@@ -310,8 +353,9 @@ function debtsSavings(debts, savings, totalIncome) {
 
     return percentDebts;
   }
-  return debtSavingsScenario1;
 }
+
+// Pedir usuario montos de deudas y ahorros
 
 let debts = parseInt(
   prompt(
@@ -320,80 +364,95 @@ let debts = parseInt(
 );
 let savings = parseInt(prompt("How much money do you save per month?"));
 
-// debtsSavings();
+// Llamar a función ahorros y deudas
 
-// function debtSavingsScenario(debt, savings) {
-//   this.debt = debt;
-//   this.savings = savings;
-//   this.showDebtScenario = function () {
-//     console.log(
-//       "This is a scenario where you owe: " +
-//         this.debt +
-//         " and save: " +
-//         this.savings
-//     );
-//   };
-// }
+debtsSavings(debts, savings, totalIncome);
 
-// const debtSavingsScenario2 = new debtSavingsScenario(1000, 2000);
-// debtSavingsScenario2.showDebtScenario();
+function debtSavingsScenario(debt, savings) {
+  this.debt = debt;
+  this.savings = savings;
+  this.showDebtScenario = function () {
+    console.log(
+      "This is a scenario where you owe: " +
+        this.debt +
+        " and save: " +
+        this.savings
+    );
+  };
+}
+
+// A partir de aquí creo escenarios alternativos de ahorros y gastos para comparar al usuario pero no llegué a completarlo todavía.
+
+const debtSavingsScenario2 = new debtSavingsScenario(1000, 2000);
+debtSavingsScenario2.showDebtScenario();
 
 // //const totalIncome = 25000;
 
-// class FullScenariosArray {
-//   constructor(needs, wants, savings, debts) {
-//     this.needs = parseInt(needs);
-//     this.wants = parseInt(wants);
-//     this.savings = parseInt(savings);
-//     this.debts = parseInt(debts);
-//   }
-//   sumSingleScenario() {
-//     let budget = this.needs + this.wants + this.debts;
-//     let percentNeeds = parseInt((this.needs / totalIncome) * 100);
-//     let percentWants = parseInt((this.wants / totalIncome) * 100);
-//     let percentSavings = parseInt((this.savings / totalIncome) * 100);
-//     let percentDebts = parseInt((this.debts / totalIncome) * 100);
-//     let percentSpending = parseInt((budget / totalIncome) * 100);
+// Se crea una clase con un constructor para ejemplificar escenarios de necesidades, deseos, ahorros y gastos.
 
-//     console.log(
-//       "In this scenario, your needs are " +
-//         percentNeeds +
-//         " percent of your income. Your wants are " +
-//         percentWants +
-//         " percent of your income. Your savings are " +
-//         percentSavings +
-//         " percent of your income. Your debts are " +
-//         percentDebts +
-//         " percent of your income. Your are spending " +
-//         percentSpending +
-//         " percent of your income."
-//     );
-//   }
-// }
+class FullScenariosArray {
+  constructor(needs, wants, savings, debts) {
+    this.needs = parseInt(needs);
+    this.wants = parseInt(wants);
+    this.savings = parseInt(savings);
+    this.debts = parseInt(debts);
+  }
+  sumSingleScenario() {
+    let budget = this.needs + this.wants + this.debts;
+    let percentNeeds = parseInt((this.needs / totalIncome) * 100);
+    let percentWants = parseInt((this.wants / totalIncome) * 100);
+    let percentSavings = parseInt((this.savings / totalIncome) * 100);
+    let percentDebts = parseInt((this.debts / totalIncome) * 100);
+    let percentSpending = parseInt((budget / totalIncome) * 100);
 
-// const fullScenariosArrays = [];
-// fullScenariosArrays.push(
-//   new FullScenariosArray("10000", "25000", "8000", "500")
-// );
-// fullScenariosArrays.push(
-//   new FullScenariosArray("15000", "10000", "0", "20000")
-// );
-// fullScenariosArrays.push(new FullScenariosArray("5000", "2000", "2000", "0"));
+    console.log(
+      "In this scenario, your needs are " +
+        percentNeeds +
+        " percent of your income. Your wants are " +
+        percentWants +
+        " percent of your income. Your savings are " +
+        percentSavings +
+        " percent of your income. Your debts are " +
+        percentDebts +
+        " percent of your income. Your are spending " +
+        percentSpending +
+        " percent of your income."
+    );
+  }
+}
 
-// for (const fullScenariosArray of fullScenariosArrays)
-//   fullScenariosArray.sumSingleScenario();
+// Se declara un array para crear un escenario
+const fullScenariosArrays = [];
 
-// console.log(fullScenariosArrays);
-// console.log(
-//   "You have presented " + fullScenariosArrays.length + " budget alternatives."
-// );
+// Se envían los escenarios (luego se crearán a partir de lo que ingresa el usuario)
+fullScenariosArrays.push(
+  new FullScenariosArray("10000", "25000", "8000", "500")
+);
+fullScenariosArrays.push(
+  new FullScenariosArray("15000", "10000", "0", "20000")
+);
+fullScenariosArrays.push(new FullScenariosArray("5000", "2000", "2000", "0"));
 
-// const badDebt = fullScenariosArrays.filter(
-//   (amt) => amt.debts > totalIncome / 5
-// );
-// console.log(badDebt);
+for (const fullScenariosArray of fullScenariosArrays)
+  fullScenariosArray.sumSingleScenario();
 
-// const totalIncome = 25000;
+// Devolución al usuario de escenarios posibles de presupuestos.
+
+console.log(fullScenariosArrays);
+console.log(
+  "You have presented " + fullScenariosArrays.length + " budget alternatives."
+);
+
+// Se filtra cuál es el escenario donde hay demasiada deuda y se devuelve al usuario.
+
+const badDebt = fullScenariosArrays.filter(
+  (amt) => amt.debts > totalIncome / 5
+);
+console.log(`This scenario has way too much debt at an amount of ${badDebt}.`);
+
+totalIncome = 25000;
+
+// A partir de acá estoy haciendo pruebas
 
 // class FullScenariosArray {
 //   constructor(needs, wants, savings, debts) {
