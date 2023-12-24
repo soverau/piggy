@@ -51,7 +51,13 @@ loginForm.addEventListener("submit", (e) => {
   let userName = document.getElementById("name");
   // Si no ingresó nombre, le da error con alerta
   if (userName.value == "") {
-    alert("Ensure you input a value in the name field!");
+    Swal.fire({
+      title: "Woops!",
+      text: "You didn't input your name",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
+    // alert("Ensure you input a value in the name field!");
   } else {
     // Si ingresó su nombre, ya no ve ese formulario, sino un mensaje de bienvenida y un nuevo formulario para ingresar datos.
     localStorage.setItem("userName", userName.value);
@@ -89,7 +95,13 @@ incomeForm.addEventListener("submit", (e) => {
     entertainment.value == "" ||
     vacations.value == ""
   ) {
-    alert("Ensure you fill out all the fields!");
+    Swal.fire({
+      title: "Uh oh!",
+      text: "You didn't fill out all the fields",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
+    // alert("Ensure you fill out all the fields!");
   } else {
     // chequear y guardar datos de entrada al formulario y crear un objeto a partir de la clase Budget
     const budget1 = new Budget(
@@ -278,6 +290,17 @@ function convert() {
 
   // Create the table
   let table = document.createElement("table");
+  table.id = "newTable";
+  //table.style.cssText += "color:red;background-color:yellow;";
+  table.classList.add(
+    "col-12",
+    "mx-auto",
+    "center",
+    "text-center",
+    "table",
+    "table-bordered"
+  );
+  document.getElementById("btn").style.display = "none";
 
   // Get the keys of the first object in the JSON data (keys = columns)
   let cols = Object.keys(budget1Chart[0]);

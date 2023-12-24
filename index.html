@@ -3,20 +3,23 @@
     <title>Am I saving enough money?</title>
     <link href="https://cdn.skypack.dev/sanitize.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div class="col-12 offset-1 my-5" style="display: flex">
       <div class="col-4 left">
-        <div id="divID" class="col-12">
-          <h1>My budget simulator</h1>
-          <h2>First, tell us your name.</h2>
+        <div id="divID" class="col-12 card border-left-primary shadow h-100 py-2" >
+          
           <div id="form-div">
+            <div class="col-12 form-group row">
             <form class="form" id="formtest">
+              <h1>My budget simulator</h1>
+              <h2>First, tell us your name.</h2>
               <p class="name">
                 <input
                   name="name"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="name"
                   placeholder="Name"
                 />
@@ -26,55 +29,57 @@
                   type="submit"
                   value="Test my spending"
                   id="buttonBlueTest"
+                  class="botn btn-primary btn-user btn-block"
                 />
                 <div class="ease"></div>
               </div>
+              
             </form>
+            </div>
           </div>
         </div>
-        <div id="welcome" class="col-12"></div>
-        <div id="answer" class="col-12"></div>
-        <div id="divIncome" style="display: none" class="col-12">
-          <h2 id="divIncomeMessage">
-            Now fill in your monthly income and expenses
-          </h2>
+        
+        <div id="divIncome" style="display: none" class="col-12  card border-left-primary shadow h-100 py-2">
+          
           <div id="formIncome">
             <form
-              class="form"
               id="form1"
-              style="
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                flex-direction: row;
-                justify-content: space-between;
-                gap: 10px;
-              "
-              class="col-12"
+              class="form-inline container gx-5 px-4"
             >
-              <div class="income col-12">
+            <div id="welcome"></div>
+            <div id="answer"></div>
+            <h4 id="divIncomeMessage">
+            Now fill in your monthly income and expenses
+            </h4>
+            <div class="form-group row col-12 ">
+
+              <div class="income">
                 <input
                   name="income"
                   type="text"
-                  class="col-12"
+                  class="col-12 form-control form-control-user "
                   id="income"
                   placeholder="Income"
                 />
               </div>
-              <div class="extraIncome col-12">
+
+              <div class="extraIncome">
                 <input
                   name="extraIncome"
                   type="text"
-                  class="col-12"
+                  class="col-12 form-control form-control-user "
                   id="extraIncome"
                   placeholder="Extra Income"
                 />
               </div>
+              </div>
+              <div class="form-group row col-12 ">
+
               <div class="rent">
                 <input
                   name="rent"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="rent"
                   placeholder="Rent or Mortgage"
                 />
@@ -84,17 +89,19 @@
                 <input
                   name="groceries"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="groceries"
                   placeholder="Groceries"
                 />
               </div>
+              </div>
+              <div class="form-group row col-12 ">
 
               <div class="health">
                 <input
                   name="health"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="health"
                   placeholder="Health"
                 />
@@ -104,17 +111,20 @@
                 <input
                   name="transport"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="transport"
                   placeholder="Transport"
                 />
               </div>
+              </div>
+              <div class="form-group row col-12 ">
+
 
               <div class="gas">
                 <input
                   name="gas"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="gas"
                   placeholder="Gas"
                 />
@@ -124,17 +134,19 @@
                 <input
                   name="electric"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="electric"
                   placeholder="Electric"
                 />
               </div>
+              </div>
+              <div class="form-group row col-12 ">
 
               <div class="mobile">
                 <input
                   name="mobile"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="mobile"
                   placeholder="Mobile"
                 />
@@ -144,17 +156,19 @@
                 <input
                   name="internet"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="internet"
                   placeholder="Internet"
                 />
               </div>
+              </div>
+              <div class="form-group row col-12 ">
 
               <div class="extraExpenses">
                 <input
                   name="extras"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="extraExpenses"
                   placeholder="Extras"
                 />
@@ -164,17 +178,20 @@
                 <input
                   name="outings"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="outings"
                   placeholder="Outings"
                 />
               </div>
+              </div>
+              <div class="form-group row col-12 ">
+
 
               <div class="entertainment">
                 <input
                   name="entertainment"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="entertainment"
                   placeholder="Entertainment"
                 />
@@ -184,10 +201,11 @@
                 <input
                   name="vacations"
                   type="text"
-                  class=""
+                  class="col-12 form-control form-control-user"
                   id="vacations"
                   placeholder="vacations"
                 />
+              </div>
               </div>
 
               <!-- <fieldset><legend>Debts and Savings</legend>
@@ -199,11 +217,12 @@
               </p>
             </fieldset> -->
 
-              <div class="submit col-6">
+              <div class="submit col-12 ">
                 <input
                   type="submit"
                   value="Test my spending"
                   id="button-blue"
+                  class="botn btn-primary btn-user btn-block"
                 />
                 <div class="ease"></div>
               </div>
@@ -211,26 +230,30 @@
           </div>
         </div>
       </div>
+      <div class="col-12" style="display: flex">
 
-      <div class="col-5 offset-1 right">
-        <div class="col-12" id="budgetSubmit" style="display: block">
-          Este botón está acá temporiamente. Luego la tabla va a aparecer y el
-          formulario desaparecer al ingresar los datos del formulario
-          directamente. No va a haber necesidad de poner un botón.
-          <button id="btn" onclick="convert( )">Click Here</button> <br />
-        </div>
-        <div class="col-6 my-5" id="chartContainer" style="display: none">
-          <div class="card">
-            <div class="body-card">
-              <h5>Breakdown</h5>
-              <hr />
-
-              <canvas id="myChart" class="col-12"></canvas>
-            </div>
+      <div class="col-6" id="chartContainer" style="display: none">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <h2>Breakdown</h2>
+            <hr />
+          <div class="body-card">
+            <canvas id="myChart" class="col-12  ">
+              
+            </canvas>
           </div>
-          <canvas id="dimensions"></canvas>
         </div>
+        <canvas id="dimensions"></canvas>
       </div>
+      </div>
+    </div>
+    <div class="col-12 offset-1 my-5" style="display: flex">
+
+    <div class="col-10" style="display: block;">
+      <div class="col-12" id="budgetSubmit" style="display: block">
+        <button id="btn" class="botn btn-primary btn-user btn-block" onclick="convert( )">Ver tabla de resultados</button> <br />
+      </div>
+      
+    </div>
     </div>
     <!-- Bootstrap CSS -->
     <link
@@ -239,6 +262,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link href="sb-admin-2.css" rel="stylesheet" />
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/main061223.js"></script>
   </body>
